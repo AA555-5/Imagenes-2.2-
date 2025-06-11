@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Vive Ataco! - Información Completa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #33cabb;
+            --primary-dark: #2aa79b;
+            --primary-light: #4dd4c4;
+            --secondary: #ff6f61;
+            --secondary-dark: #e55a4d;
+            --accent: #ffcc00;
+            --accent-dark: #e6b800;
+            --light: #fff8dc;
+            --dark: #333;
+            --gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --card-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            --hover-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            background-color: #f5f7fa;
+        }
+
+        /* Modern animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(125deg, #f5f7fa 0%, #c3cfe2 100%);
+            opacity: 0.8;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            will-change: transform;
+            animation: blobFloat 25s infinite alternate ease-in-out;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .blob-1 {
+            width: 800px;
+            height: 800px;
+            background: rgba(51, 202, 187, 0.3);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 111, 97, 0.3);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 204, 0, 0.3);
+            bottom: 30%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+
+        @keyframes blobFloat {
+            0% {
+                transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate3d(100px, -50px, 0) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translate3d(-50px, 100px, 0) rotate(240deg) scale(0.9);
+            }
+            100% {
+                transform: translate3d(0, 0, 0) rotate(360deg) scale(1);
+            }
+        }
+
+        /* Responsive blob sizes */
+        @media (max-width: 1024px) {
+            .blob-1 {
+                width: 600px;
+                height: 600px;
+            }
+            .blob-2 {
+                width: 450px;
+                height: 450px;
+            }
+            .blob-3 {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blob-1 {
+                width: 400px;
+                height: 400px;
+                filter: blur(40px);
+            }
+            .blob-2 {
+                width: 300px;
+                height: 300px;
+                filter: blur(40px);
+            }
+            .blob-3 {
+                width: 250px;
+                height: 250px;
+                filter: blur(40px);
+            }
+        }
+
+        /* Interactive particles */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.7;
+            contain: layout style paint;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive container padding */
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Modern scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-dark);
+        }
+
+        /* Responsive scrollbar */
+        @media (max-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+        }
+
+        /* Modern header with parallax */
+        .header {
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem 6rem 2rem;
+            border-radius: 20px;
+            margin: 1rem auto 2rem auto;
+            box-shadow: var(--shadow);
+            position: relative;
+            max-width: 1200px;
+            overflow: hidden;
+            background-attachment: fixed;
+            will-change: transform;
+            contain: layout style paint;
+            z-index: 2;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://elsalvador.travel/system/wp-content/uploads/2020/01/Mural-de-Ataco2.jpg') no-repeat center center/cover;
+            z-index: -1;
+            transform: scale(1.1);
+            transition: transform 0.5s ease-out;
+        }
+
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(51, 202, 187, 0.8), rgba(255, 111, 97, 0.8));
+            border-radius: 20px;
+            z-index: 0;
+            animation: gradientShift 15s ease-in-out infinite;
+            will-change: background;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { 
+                background: linear-gradient(135deg, rgba(51, 202, 187, 0.8), rgba(255, 111, 97, 0.8)); 
+            }
+            33% { 
+                background: linear-gradient(135deg, rgba(255, 111, 97, 0.8), rgba(255, 204, 0, 0.8)); 
+            }
+            66% { 
+                background: linear-gradient(135deg, rgba(255, 204, 0, 0.8), rgba(51, 202, 187, 0.8)); 
+            }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+            letter-spacing: 2px;
+            animation: titleReveal 1.5s var(--elastic) forwards;
+            opacity: 0;
+            transform: translate3d(0, 50px, 0);
+            will-change: transform, opacity;
+        }
+
+        @keyframes titleReveal {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 50px, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .header p {
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            animation: subtitleReveal 1.5s var(--elastic) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            will-change: transform, opacity;
+        }
+
+        @keyframes subtitleReveal {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 30px, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Responsive header */
+        @media (max-width: 768px) {
+            .header {
+                padding: 4rem 1rem 3rem 1rem;
+                margin: 0.5rem auto 1.5rem auto;
+                border-radius: 15px;
+            }
+            
+            .header-overlay {
+                border-radius: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 3rem 0.5rem 2rem 0.5rem;
+            }
+        }
+
+        /* Modern neumorphic tabs */
+        .tabs-container {
+            position: relative;
+            margin: 2rem 0;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+                        inset 0 0 20px rgba(255, 255, 255, 0.5);
+            z-index: 3;
+            contain: layout style paint;
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .tab-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(51, 202, 187, 0.3);
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            will-change: transform, box-shadow;
+            contain: layout style paint;
+            transform: translate3d(0, 0, 0);
+            min-width: 120px;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: transform 0.8s ease;
+            will-change: transform;
+        }
+
+        .tab-button:hover::before {
+            transform: translate3d(200%, 0, 0);
+        }
+
+        .tab-button:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translate3d(0, -4px, 0) scale3d(1.02, 1.02, 1);
+            box-shadow: 0 12px 30px rgba(51, 202, 187, 0.4);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            box-shadow: 0 12px 30px rgba(255, 111, 97, 0.5);
+            transform: translate3d(0, -6px, 0) scale3d(1.05, 1.05, 1);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 12px 30px rgba(255, 111, 97, 0.5); 
+            }
+            50% { 
+                box-shadow: 0 15px 40px rgba(255, 111, 97, 0.7); 
+            }
+        }
+
+        /* Responsive tabs */
+        @media (max-width: 768px) {
+            .tabs-container {
+                margin: 1.5rem 0;
+                padding: 1rem;
+                border-radius: 15px;
+            }
+            
+            .tabs {
+                gap: 0.5rem;
+            }
+            
+            .tab-button {
+                padding: 0.7rem 1rem;
+                min-width: 100px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tabs {
+                gap: 0.4rem;
+            }
+            
+            .tab-button {
+                padding: 0.6rem 0.8rem;
+                min-width: 80px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Modern tab content with 3D slide */
+        .tab-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            margin: 2rem auto;
+            max-width: 1200px;
+            opacity: 0;
+            transform: translate3d(-50px, 0, 0) rotateY(-10deg);
+            transition: all 0.6s var(--bounce);
+            will-change: transform, opacity;
+            contain: layout style paint;
+            z-index: 2;
+            position: relative;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translate3d(0, 0, 0) rotateY(0deg);
+            animation: slideInContent 0.8s var(--bounce);
+        }
+
+        @keyframes slideInContent {
+            0% {
+                opacity: 0;
+                transform: translate3d(-50px, 0, 0) rotateY(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) rotateY(0deg);
+            }
+        }
+
+        .tab-content h2 {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            animation: titleGlow 3s ease-in-out infinite;
+            will-change: text-shadow;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                text-shadow: 0 0 10px rgba(255, 111, 97, 0.3); 
+            }
+            50% { 
+                text-shadow: 0 0 20px rgba(255, 111, 97, 0.6); 
+            }
+        }
+
+        .tab-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            border-radius: 3px;
+            animation: underlineGrow 2s ease-in-out infinite;
+            will-change: width;
+        }
+
+        @keyframes underlineGrow {
+            0%, 100% { width: 60px; }
+            50% { width: 100px; }
+        }
+
+        /* Responsive tab content */
+        @media (max-width: 768px) {
+            .tab-content {
+                padding: 1.5rem 1rem;
+                margin: 1.5rem auto;
+                border-radius: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tab-content {
+                padding: 1rem 0.75rem;
+                margin: 1rem auto;
+            }
+        }
+
+        /* Modern neumorphic cards */
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border: none;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 15px 15px 40px #d9d9d9, -15px -15px 40px #ffffff;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+            contain: layout style paint;
+            transform: translate3d(0, 0, 0);
+            perspective: 1000px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease-in-out infinite;
+            will-change: background-position;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .card:hover {
+            transform: translate3d(0, -8px, 0) rotateX(3deg);
+            box-shadow: 20px 20px 50px #d0d0d0, -20px -20px 50px #ffffff;
+        }
+
+        .card h3 {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: textShimmer 4s ease-in-out infinite;
+            will-change: color;
+            flex-wrap: wrap;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { color: var(--secondary); }
+            50% { color: var(--primary); }
+        }
+
+        .card p {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        /* Responsive cards */
+        @media (max-width: 768px) {
+            .card {
+                padding: 1.5rem;
+                border-radius: 15px;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 1rem;
+            }
+        }
+
+        /* Modern grid with responsive layout */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            contain: layout;
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                gap: 2.5rem;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Modern glass cards with 3D hover */
+        .item-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            will-change: transform, box-shadow;
+            contain: layout style paint;
+            transform: translate3d(0, 0, 0);
+            perspective: 1000px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .item-card:hover {
+            transform: translate3d(0, -10px, 0) rotateY(2deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .item-card-img {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            contain: layout style paint;
+        }
+
+        .item-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: brightness(0.9);
+            will-change: transform, filter;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .item-card:hover img {
+            transform: translate3d(0, 0, 0) scale3d(1.08, 1.08, 1) rotate(1deg);
+            filter: brightness(1.1);
+        }
+
+        .item-card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(51, 202, 187, 0.2), rgba(255, 111, 97, 0.2));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            will-change: opacity;
+        }
+
+        .item-card:hover .item-card-img::after {
+            opacity: 1;
+        }
+
+        .item-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            position: relative;
+            border-top: 3px solid var(--accent);
+        }
+
+        .item-card-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .item-card h4 {
+            margin: 0.8rem 0;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            animation: textPulse 3s ease-in-out infinite;
+            will-change: transform;
+            line-height: 1.3;
+        }
+
+        @keyframes textPulse {
+            0%, 100% { 
+                transform: scale3d(1, 1, 1); 
+            }
+            50% { 
+                transform: scale3d(1.01, 1.01, 1); 
+            }
+        }
+
+        .item-card p {
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            margin: 0.3rem 0;
+            line-height: 1.4;
+        }
+
+        /* Responsive item cards */
+        @media (max-width: 768px) {
+            .item-card-img {
+                height: 180px;
+            }
+            
+            .item-card-content {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .item-card-img {
+                height: 160px;
+            }
+            
+            .item-card-content {
+                padding: 1rem;
+            }
+        }
+
+        /* Modern gallery with responsive layout */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            contain: layout;
+        }
+
+        @media (min-width: 640px) {
+            .gallery {
+                gap: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            height: 220px;
+            cursor: pointer;
+            transition: var(--transition);
+            will-change: transform, box-shadow;
+            contain: layout style paint;
+            transform: translate3d(0, 0, 0);
+            perspective: 1000px;
+        }
+
+        .gallery-item:hover {
+            transform: translate3d(0, -8px, 0) rotateX(5deg);
+            box-shadow: var(--hover-shadow);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+            filter: brightness(0.8);
+            will-change: transform, filter;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .gallery-item:hover img {
+            transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1);
+            filter: brightness(1.2);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(51, 202, 187, 0.3), rgba(255, 111, 97, 0.3));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            will-change: opacity;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            color: white;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transform: translate3d(0, 100%, 0);
+            transition: transform 0.4s var(--bounce);
+            will-change: transform;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+        }
+
+        .gallery-item:hover .gallery-item-caption {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Responsive gallery */
+        @media (max-width: 768px) {
+            .gallery-item {
+                height: 200px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gallery-item {
+                height: 180px;
+            }
+        }
+
+        /* Modern itinerary */
+        .itinerary {
+            text-align: center;
+            position: relative;
+            contain: layout style paint;
+        }
+
+        .itinerary img {
+            width: 100%;
+            height: auto;
+            max-width: 1000px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            will-change: transform, box-shadow;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .itinerary img:hover {
+            transform: translate3d(0, 0, 0) scale3d(1.02, 1.02, 1);
+            box-shadow: var(--hover-shadow);
+        }
+
+        /* Modern footer with animated gradient */
+        .footer {
+            background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--accent), var(--primary-dark));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            font-weight: 700;
+            margin-top: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            contain: layout style paint;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: footerPulse 8s infinite linear;
+            will-change: transform, opacity;
+        }
+
+        @keyframes footerPulse {
+            0% { 
+                transform: scale3d(0.8, 0.8, 1) rotate(0deg); 
+                opacity: 0.3; 
+            }
+            50% { 
+                transform: scale3d(1.2, 1.2, 1) rotate(180deg); 
+                opacity: 0.6; 
+            }
+            100% { 
+                transform: scale3d(0.8, 0.8, 1) rotate(360deg); 
+                opacity: 0.3; 
+            }
+        }
+
+        .footer p {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive footer */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2.5rem 1rem;
+                margin-top: 3rem;
+                border-radius: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 2rem 0.75rem;
+                margin-top: 2rem;
+            }
+        }
+
+        /* Modern scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-progress {
+                height: 3px;
+            }
+        }
+
+        /* Modern floating action button */
+        .floating-action {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: var(--transition);
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .floating-action.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .floating-action:hover {
+            transform: translate3d(0, -3px, 0) scale3d(1.1, 1.1, 1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-action svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Responsive floating action */
+        @media (max-width: 768px) {
+            .floating-action {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .floating-action svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* Modern loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: all 0.8s ease;
+            contain: layout style paint;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale3d(0, 0, 1);
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .loader-spinner {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto 2rem;
+        }
+
+        .loader-spinner div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 8px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spinnerOne 1.2s linear infinite;
+        }
+
+        .loader-spinner div:nth-child(2) {
+            border: 8px solid transparent;
+            border-bottom-color: var(--accent);
+            animation: spinnerTwo 1.2s linear infinite;
+        }
+
+        @keyframes spinnerOne {
+            0% { transform: rotate(0deg); border-width: 8px; }
+            50% { transform: rotate(180deg); border-width: 2px; }
+            100% { transform: rotate(360deg); border-width: 8px; }
+        }
+
+        @keyframes spinnerTwo {
+            0% { transform: rotate(0deg); border-width: 2px; }
+            50% { transform: rotate(180deg); border-width: 8px; }
+            100% { transform: rotate(360deg); border-width: 2px; }
+        }
+
+        .loader h2 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+            animation: textReveal 2s ease-in-out infinite alternate;
+            background: linear-gradient(90deg, white, var(--accent), white);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            will-change: background-position;
+        }
+
+        @keyframes textReveal {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .loader p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        /* Responsive loading */
+        @media (max-width: 768px) {
+            .loader-spinner {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .loader-spinner div {
+                border-width: 6px;
+            }
+        }
+
+        /* Modern fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Performance optimizations */
+        .item-card,
+        .gallery-item,
+        .card,
+        .tab-button,
+        .header,
+        .blob,
+        .particle {
+            will-change: transform;
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .blob, .particle {
+                animation: none;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .item-card:hover,
+            .gallery-item:hover,
+            .card:hover,
+            .tab-button:hover {
+                transform: none;
+            }
+            
+            .item-card:active,
+            .gallery-item:active,
+            .card:active {
+                transform: translate3d(0, -5px, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Modern animated background -->
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Interactive particles -->
+    <div class="particles-container" id="particles-container"></div>
+
+    <!-- Modern loading animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner">
+                <div></div>
+                <div></div>
+            </div>
+            <h2>¡Vive Ataco!</h2>
+            <p>Descubriendo experiencias únicas...</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-bg"></div>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1>¡Vive Ataco!</h1>
+            <p>Colores, cultura y café en el corazón de El Salvador</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tabs-container">
+            <div class="tabs" role="tablist" aria-label="Secciones de Vive Ataco">
+                <button class="tab-button active" role="tab" aria-selected="true" aria-controls="historia" id="tab-historia">Historia</button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="gastronomia" id="tab-gastronomia">Gastronomía</button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="alojamiento" id="tab-alojamiento">Alojamiento</button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="aventura" id="tab-aventura">Aventura</button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="itinerario" id="tab-itinerario">Itinerario</button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="galeria" id="tab-galeria">Galería</button>
+            </div>
+        </div>
+
+        <!-- Historia Tab -->
+        <section id="historia" class="tab-content active" role="tabpanel" aria-labelledby="tab-historia" tabindex="0">
+            <h2>Historia</h2>
+            
+            <div class="card fade-in">
+                <h3>📍 Información General</h3>
+                <p><strong>Nombre completo:</strong> Concepción de Ataco</p>
+                <p><strong>Ubicación:</strong> Departamento de Ahuachapán, El Salvador</p>
+                <p><strong>Altura:</strong> Aproximadamente 1,250 msnm</p>
+                <p><strong>Clima:</strong> Fresco, ideal para el turismo</p>
+                <p><strong>Economía:</strong> Café, artesanías, turismo</p>
+            </div>
+
+            <div class="card fade-in">
+                <h3>🌺 Encanto de Ataco</h3>
+                <p>Concepción de Ataco es un pueblo mágico, lleno de murales artísticos, café de altura y calles empedradas que conservan su tradición.</p>
+                <p>Es un destino perfecto para quienes buscan cultura, naturaleza y descanso en un ambiente tranquilo.</p>
+            </div>
+        </section>
+
+        <!-- Gastronomía Tab -->
+        <section id="gastronomia" class="tab-content" role="tabpanel" aria-labelledby="tab-gastronomia" tabindex="0">
+            <h2>Gastronomía</h2>
+            <div id="restaurants-container"></div>
+        </section>
+
+        <!-- Alojamiento Tab -->
+        <section id="alojamiento" class="tab-content" role="tabpanel" aria-labelledby="tab-alojamiento" tabindex="0">
+            <h2>Alojamiento</h2>
+            <div id="hotels-container" class="grid grid-cols-3"></div>
+        </section>
+
+        <!-- Aventura Tab -->
+        <section id="aventura" class="tab-content" role="tabpanel" aria-labelledby="tab-aventura" tabindex="0">
+            <h2>Aventura</h2>
+            <div id="adventures-container" class="grid grid-cols-3"></div>
+        </section>
+
+        <!-- Itinerario Tab -->
+        <section id="itinerario" class="tab-content" role="tabpanel" aria-labelledby="tab-itinerario" tabindex="0">
+            <h2>Itinerario recomendado</h2>
+            <div class="itinerary fade-in">
+                <img src="https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/Itinerario.jpg" alt="Itinerario recomendado para visitar Ataco" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzMzY2FiYiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkl0aW5lcmFyaW8gZGUgQXRhY288L3RleHQ+Cjwvc3ZnPg=='">
+            </div>
+        </section>
+
+        <!-- Galería Tab -->
+        <section id="galeria" class="tab-content" role="tabpanel" aria-labelledby="tab-galeria" tabindex="0">
+            <h2>Galería de imágenes</h2>
+            <div id="gallery-container" class="gallery"></div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>©️ 2025 Vive Ataco | Diseñado para resaltar la belleza de El Salvador</p>
+    </footer>
+
+    <!-- Modern floating action button -->
+    <div class="floating-action" id="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </div>
+
+    <script>
+        // Data Arrays
+        const restaurants = [
+            { name: "Portland Grill y Bar", phone: "+503 2480 200", address: "Calle Principal, Ataco" },
+            { name: "Entre Nubes", phone: "+503 2433 0823", address: "Avenida Central, Ataco" },
+            { name: "Buenos Aires Ataco", phone: "+503 2450 5377", address: "Barrio San Miguel, Ataco" },
+            { name: "Casa 1800", phone: "+503 7670 2402", address: "Calle del Café, Ataco" },
+            { name: "El Brasero de Ataco", phone: "+503 7852 5919", address: "2ª Avenida Norte, Ataco" },
+            { name: "Cabañas y Restaurante Jardín Celeste", phone: "+503 2433 0277", address: "Carretera a Concepción de Ataco" },
+            { name: "Sibaritas", phone: "+503 2450 5756", address: "Plaza Central, Ataco" }
+        ];
+
+        const hotels = [
+            {
+                name: "Hotel Casa Blanca",
+                address: "Calle 5 de Mayo, Ataco",
+                phone: "+503 2433 0123",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5K0rR7X9y3s1mzQhJPgd5ri3KGlerYzvD_w&s"
+            },
+            {
+                name: "Hotel Posada del Ángel",
+                address: "3ª Avenida Sur, Ataco",
+                phone: "+503 2433 0145",
+                image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/ae/c8/2b/fachada-principal.jpg?w=900&h=500&s=1"
+            },
+            {
+                name: "Hotel Boutique Los Olivos",
+                address: "Calle Principal, Barrio El Calvario",
+                phone: "+503 2433 0188",
+                image: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqekptov-xMZ-YeeIVa1MQQs5OoAoetGTQClOZBcCIy4BSSoh7KVFtt3vd9I8NMsV06avbdX9qXtKq1zFs9TgIJrhlblsCeVsFJhruaNFVCMXQKpUoZaC9aH15fC5NSPjgXqRn3Kg=w253-h337-k-no"
+            },
+            {
+                name: "Cabañas La Montaña",
+                address: "Carretera a Concepción de Ataco, km 45",
+                phone: "+503 2433 0160",
+                image: "https://alicante-apaneca-hotel-concepcion-de-ataco.hotelmix.es/data/Photos/OriginalPhoto/5457/545729/545729331/Hotel-Alicante-Apaneca-Exterior.JPEG"
+            },
+            {
+                name: "Hotel El Buen Descanso",
+                address: "Avenida Central, Ataco",
+                phone: "+503 2433 0125",
+                image: "https://q-xx.bstatic.com/xdata/images/hotel/max500/78634138.jpg?k=441a1526f3be2c94449f08a6e621d5170c840d153f88a9097713baf931bea352&o="
+            },
+            {
+                name: "Hotel Los Almendros",
+                address: "Calle Las Flores, Ataco",
+                phone: "+503 2433 0177",
+                image: "https://images.trvl-media.com/lodging/33000000/32880000/32876400/32876305/73500032.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            }
+        ];
+
+        const adventures = [
+            {
+                name: "Mirador de la Z",
+                subtitle: "(Vista del paisaje)",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/MIRADOR%20DE%20LA%20Z%20.jpg"
+            },
+            {
+                name: "Mirador de la cruz",
+                subtitle: "",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/MIRADOR%20DE%20LA%20CRUZ.jpg"
+            },
+            {
+                name: "Vista mirador de la cruz",
+                subtitle: "",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/VISTA%20MIRADOR%20DE%20LA%20CRUZ.jpg"
+            },
+            {
+                name: "Tour del cafe",
+                subtitle: "(Finca el Carmen)",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/FINCA%20EL%20CARMEN%20.jpeg"
+            },
+            {
+                name: "Iglesia Inmaculada Concepcion de Maria",
+                subtitle: "",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/IGLESIA.jpg"
+            },
+            {
+                name: "Tour Cuadrimotos",
+                subtitle: "",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/CUADRIMOTOS%20.jpeg"
+            },
+            {
+                name: "Tour Congabus",
+                subtitle: "",
+                image: "https://raw.githubusercontent.com/AA555-5/Imagenes-2.2-/refs/heads/main/CONGA%20BUS%20.jpeg"
+            }
+        ];
+
+        const galleryImages = [
+            {
+                src: "https://www.shutterstock.com/image-photo/ataco-el-salvador-december-2023-600w-2404434757.jpg",
+                alt: "Murales artísticos de Ataco",
+                caption: "Coloridos murales que adornan las calles de Ataco"
+            },
+            {
+                src: "https://spanish.news.cn/20220915/5632520654ab44329b1ab0710f589d90/202209155632520654ab44329b1ab0710f589d90_20220909d11e7d3060de4e669ed1f5163c2dd76a.jpg",
+                alt: "Finca cafetalera en Ataco",
+                caption: "Finca cafetalera con vista panorámica"
+            },
+            {
+                src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjw-U2vpiJDotImkIPPyLFYXKs1frxLD2pMwNAOYZeSSycptaN-yJE2Mii85OlzRx0BhI8EEDuH7A868cHVEiJsHpoEFyxAPu6dISxKgYcn0gpKIkOpoZJCP9ZyPFcolAqT6hZ52p4cgek/s1600/3177793947_395e170b6e_z.jpg",
+                alt: "Mirador con vista panorámica",
+                caption: "Impresionante vista desde el mirador"
+            },
+            {
+                src: "https://i.pinimg.com/736x/30/1d/46/301d463bcf1dd534baf36a9923a7adbe.jpg",
+                alt: "Festival cultural en Ataco",
+                caption: "Celebración cultural con tradiciones locales"
+            }
+        ];
+
+        // Responsive particle creation
+        function createInteractiveParticles() {
+            const particlesContainer = document.getElementById('particles-container');
+            const screenWidth = window.innerWidth;
+            
+            // Responsive particle count
+            let particleCount;
+            if (screenWidth < 480) {
+                particleCount = 15;
+            } else if (screenWidth < 768) {
+                particleCount = 25;
+            } else if (screenWidth < 1024) {
+                particleCount = 35;
+            } else {
+                particleCount = 40;
+            }
+            
+            const colors = ['rgba(51, 202, 187, 0.6)', 'rgba(255, 111, 97, 0.6)', 'rgba(255, 204, 0, 0.6)'];
+            const sizes = screenWidth < 768 ? [2, 3, 4] : [3, 4, 5, 6];
+            
+            // Clear existing particles
+            particlesContainer.innerHTML = '';
+            
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random properties
+                const size = sizes[Math.floor(Math.random() * sizes.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Set styles
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.backgroundColor = color;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Add to container
+                particlesContainer.appendChild(particle);
+                
+                // Animate with random properties
+                animateParticle(particle);
+            }
+        }
+
+        function animateParticle(particle) {
+            const duration = Math.random() * 15 + 10; // 10-25 seconds
+            const xMovement = Math.random() * 100 - 50; // -50 to 50
+            const yMovement = Math.random() * 100 - 50; // -50 to 50
+            
+            // Set animation
+            particle.style.transition = `transform ${duration}s ease-in-out`;
+            particle.style.transform = `translate3d(${xMovement}px, ${yMovement}px, 0) rotate(${Math.random() * 360}deg)`;
+            
+            // Reset after animation completes
+            setTimeout(() => {
+                particle.style.transition = 'none';
+                particle.style.transform = 'translate3d(0, 0, 0)';
+                
+                // Start new animation
+                setTimeout(() => {
+                    animateParticle(particle);
+                }, 50);
+            }, duration * 1000);
+        }
+
+        // Modern scroll progress indicator
+        function initializeScrollProgress() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.pageYOffset / totalHeight) * 100;
+                
+                requestAnimationFrame(() => {
+                    scrollProgress.style.width = `${progress}%`;
+                });
+            }, { passive: true });
+        }
+
+        // Optimized fallback image creation with caching
+        const fallbackImageCache = new Map();
+        function createFallbackImage(text, width = 400, height = 300) {
+            const key = `${text}-${width}-${height}`;
+            if (fallbackImageCache.has(key)) {
+                return fallbackImageCache.get(key);
+            }
+            
+            const svg = `data:image/svg+xml;base64,${btoa(`
+                <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#f0f0f0"/>
+                    <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" fill="#33cabb" text-anchor="middle" dy=".3em">${text}</text>
+                </svg>
+            `)}`;
+            
+            fallbackImageCache.set(key, svg);
+            return svg;
+        }
+
+        // Modern render functions with DocumentFragment and animation
+        function renderRestaurants() {
+            const container = document.getElementById('restaurants-container');
+            const fragment = document.createDocumentFragment();
+            
+            restaurants.forEach((restaurant, index) => {
+                const restaurantCard = document.createElement('div');
+                restaurantCard.className = 'card fade-in';
+                restaurantCard.style.animationDelay = `${index * 0.1}s`;
+                restaurantCard.innerHTML = `
+                    <h3>🍽️ Restaurante: ${restaurant.name}</h3>
+                    <p><strong>📞 Teléfono:</strong> ${restaurant.phone}</p>
+                    <p><strong>📍 Dirección:</strong> ${restaurant.address}</p>
+                `;
+                fragment.appendChild(restaurantCard);
+            });
+            
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        }
+
+        function renderHotels() {
+            const container = document.getElementById('hotels-container');
+            const fragment = document.createDocumentFragment();
+            
+            hotels.forEach((hotel, index) => {
+                const hotelCard = document.createElement('div');
+                hotelCard.className = 'item-card fade-in';
+                hotelCard.style.animationDelay = `${index * 0.1}s`;
+                hotelCard.innerHTML = `
+                    <div class="item-card-img">
+                        <img src="${hotel.image}" alt="${hotel.name}" 
+                             onerror="this.src='${createFallbackImage(hotel.name, 400, 250)}'">
+                    </div>
+                    <div class="item-card-content">
+                        <h4>🏨 ${hotel.name}</h4>
+                        <p><strong>📍 Dirección:</strong> ${hotel.address}</p>
+                        <p><strong>📞 Teléfono:</strong> ${hotel.phone}</p>
+                    </div>
+                `;
+                fragment.appendChild(hotelCard);
+            });
+            
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        }
+
+        function renderAdventures() {
+            const container = document.getElementById('adventures-container');
+            const fragment = document.createDocumentFragment();
+            
+            adventures.forEach((adventure, index) => {
+                const adventureCard = document.createElement('div');
+                adventureCard.className = 'item-card fade-in';
+                adventureCard.style.animationDelay = `${index * 0.1}s`;
+                adventureCard.innerHTML = `
+                    <div class="item-card-img">
+                        <img src="${adventure.image}" alt="${adventure.name}" 
+                             onerror="this.src='${createFallbackImage(adventure.name, 400, 250)}'">
+                    </div>
+                    <div class="item-card-content">
+                        <h4>🎯 ${adventure.name}</h4>
+                        ${adventure.subtitle ? `<h4>${adventure.subtitle}</h4>` : ''}
+                    </div>
+                `;
+                fragment.appendChild(adventureCard);
+            });
+            
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        }
+
+        function renderGallery() {
+            const container = document.getElementById('gallery-container');
+            const fragment = document.createDocumentFragment();
+            
+            galleryImages.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item fade-in';
+                galleryItem.style.animationDelay = `${index * 0.1}s`;
+                galleryItem.innerHTML = `
+                    <img src="${image.src}" alt="${image.alt}" 
+                         onerror="this.src='${createFallbackImage(image.caption, 400, 280)}'">
+                    <div class="gallery-item-caption">
+                        <p>${image.caption}</p>
+                    </div>
+                `;
+                fragment.appendChild(galleryItem);
+            });
+            
+            container.innerHTML = '';
+            container.appendChild(fragment);
+        }
+
+        // Modern tab functionality with animation
+        function initializeTabs() {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+            let isTransitioning = false;
+
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', () => {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    contents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+
+                    // Show corresponding content
+                    const tabId = tab.getAttribute('aria-controls');
+                    const targetContent = document.getElementById(tabId);
+                    if (targetContent) {
+                        requestAnimationFrame(() => {
+                            targetContent.classList.add('active');
+                            // Trigger fade-in animations
+                            const fadeElements = targetContent.querySelectorAll('.fade-in');
+                            fadeElements.forEach((el, index) => {
+                                setTimeout(() => {
+                                    el.classList.add('visible');
+                                }, index * 100);
+                            });
+                            
+                            setTimeout(() => {
+                                isTransitioning = false;
+                            }, 600);
+                        });
+                    }
+                });
+            });
+        }
+
+        // Modern floating action button
+        function initializeFloatingAction() {
+            const floatingAction = document.getElementById('back-to-top');
+            let isVisible = false;
+            
+            function updateVisibility() {
+                const shouldShow = window.pageYOffset > 300;
+                
+                if (shouldShow && !isVisible) {
+                    floatingAction.classList.add('visible');
+                    isVisible = true;
+                } else if (!shouldShow && isVisible) {
+                    floatingAction.classList.remove('visible');
+                    isVisible = false;
+                }
+            }
+            
+            // Throttled scroll listener
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        updateVisibility();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+            
+            // Click handler
+            floatingAction.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Modern scroll animations with Intersection Observer
+        function initializeScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Modern parallax effect
+        function initializeParallax() {
+            const header = document.querySelector('.header-bg');
+            let ticking = false;
+            
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.3;
+                
+                if (header) {
+                    header.style.transform = `translate3d(0, ${rate}px, 0) scale(1.1)`;
+                }
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }, { passive: true });
+        }
+
+        // Responsive handler
+        function handleResize() {
+            // Recreate particles with new count
+            createInteractiveParticles();
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create modern background effects
+            createInteractiveParticles();
+            
+            // Initialize modern features
+            initializeScrollProgress();
+            initializeParallax();
+
+            // Hide loader with modern animation
+            setTimeout(() => {
+                document.querySelector('.loader').classList.add('hidden');
+                
+                // Trigger tabs container animation
+                setTimeout(() => {
+                    document.querySelector('.tabs-container').style.opacity = '1';
+                }, 300);
+            }, 2000);
+
+            // Render content with staggered animations
+            setTimeout(() => {
+                renderRestaurants();
+                renderHotels();
+                renderAdventures();
+                renderGallery();
+            }, 500);
+            
+            // Initialize functionality
+            initializeTabs();
+            initializeFloatingAction();
+            initializeScrollAnimations();
+
+            // Initial fade-in for visible elements
+            setTimeout(() => {
+                document.querySelectorAll('#historia .fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 1000);
+        });
+
+        // Handle window resize for responsiveness
+        window.addEventListener('resize', () => {
+            clearTimeout(window.resizeTimeout);
+            window.resizeTimeout = setTimeout(handleResize, 250);
+        });
+
+        // Mouse interaction with particles (only on desktop)
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const particles = document.querySelectorAll('.particle');
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                particles.forEach((particle, index) => {
+                    const rect = particle.getBoundingClientRect();
+                    const particleX = rect.left + rect.width / 2;
+                    const particleY = rect.top + rect.height / 2;
+                    
+                    const distance = Math.sqrt(
+                        Math.pow(mouseX - particleX, 2) + Math.pow(mouseY - particleY, 2)
+                    );
+                    
+                    if (distance < 100) {
+                        const force = (100 - distance) / 100;
+                        const angle = Math.atan2(particleY - mouseY, particleX - mouseX);
+                        const moveX = Math.cos(angle) * force * 15;
+                        const moveY = Math.sin(angle) * force * 15;
+                        
+                        particle.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+                        particle.style.opacity = 0.8 + force * 0.2;
+                    } else {
+                        particle.style.transform = 'translate3d(0, 0, 0)';
+                        particle.style.opacity = 0.6;
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
